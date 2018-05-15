@@ -9,42 +9,38 @@ import (
 func main() {
 
 	operando1, err := strconv.Atoi(os.Args[1])
-	mostrarError(err)
-	operando2, err := strconv.Atoi(os.Args[2])
-	mostrarError(err)
 
-	if operando1 < 0 || operando2 < 0 {
-		fmt.Println("Debe ingresar un numero diferente")
+	operando2, er := strconv.Atoi(os.Args[2])
+
+	if err != nil || er != nil {
+		fmt.Println("entrada invalida")
 	} else {
 		switch os.Args[3] {
 		case "suma":
-			fmt.Printf("La suma es %d", operando1 + operando2)
+			suma := operando1 + operando2
+			fmt.Printf("La suma es %d", suma)
 
 		case "resta":
-			fmt.Printf("La resta es %d", operando1 - operando2)
+			resta := operando1 - operando2
+			fmt.Printf("La resta es %d", resta)
 
 		case "multiplicacion":
-			fmt.Printf("La multiplicacion es %d", operando1 * operando2)
+			multi := operando1 * operando2
+			fmt.Printf("La multiplicacion es %d", multi)
 
 		case "division":
 			if operando2 == 0 {
 				fmt.Printf("El denominador no puede ser cero")
 				break
 			} else {
-				fmt.Printf("La division es %e", (float32 (operando1) / float32 (operando2)))
+				div := (float32(operando1) / float32(operando2))
+				fmt.Printf("La division es %f", div)
 			}
 		default:
 			fmt.Printf("Error")
 		}
 	}
 }
-
-func mostrarError(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
-
 
 /*
 	Autores:

@@ -37,7 +37,7 @@ func main() {
 				fmt.Printf("La division es %f", div)
 			}
 		default:
-			fmt.Printf("Error")
+			fmt.Printf("El operador no es reconocido")
 		}
 	}
 }
